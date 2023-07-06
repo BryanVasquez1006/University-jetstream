@@ -16,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/permisos', function () {
+    return view('permisos');
+});
+
+Route::get('/maestros', function () {
+    return view('maestros');
+});
+
+Route::get('/alumnos', function () {
+    return view('alumnos');
+});
+
+Route::get('/clases', function () {
+    return view('clases');
+});
+
 
 Route::middleware([
     'auth:sanctum',
