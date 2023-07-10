@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PermisosController;
+use App\Http\Controllers\MaestrosController;
+use App\Models\Permisos;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+// RUTAS PARA LAS DIFERENTES SECCIONES DE LA PAGINA
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/permisos', function () {
-    return view('permisos');
-});
 
-Route::get('/maestros', function () {
-    return view('maestros');
-});
 
-Route::get('/alumnos', function () {
-    return view('alumnos');
-});
 
-Route::get('/clases', function () {
-    return view('clases');
-});
+Route::resource('/permisos', PermisosController::class)->names("permisos");
+Route::resource('/maestros', MaestrosController::class)->names("maestros");
+Route::resource('/alumnos', AlumnosController::class)->names("alumnos");
+Route::resource('/clases', ClasesController::class)->names("clases");
+
+// RUTAS PARA EL CRUD
+
+
+
+// Route::post('create', [PermisosController::class, 'store'])->name('permisos.store');
 
 
 Route::middleware([

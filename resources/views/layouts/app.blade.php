@@ -21,7 +21,7 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            @livewire('show-users')
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -41,5 +41,6 @@
         @stack('modals')
 
         @livewireScripts
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     </body>
 </html>
