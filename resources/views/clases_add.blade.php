@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @vite('resources/css/app.css')
-@section('title', 'Maestros')
+@section('title', 'Clases')
 
 @section('content_header')
 
@@ -17,10 +17,8 @@
                     <div class="m-auto">
                         <div>
                             {{-- FORMULARIO --}}
-                            <form action="{{ route('maestros.update', $maestros->id) }}" method="POST">
-
+                            <form action="{{ route('clases.store') }}" method="POST">
                                 @csrf
-                                @method('PUT')
                                 <div class="mt-5 bg-white rounded-lg shadow">
                                     <div class="flex">
                                         <div class="flex-1 py-5 pl-5 overflow-hidden">
@@ -42,33 +40,21 @@
                                         </div>
                                     </div>
                                     <div class="px-5 pb-5">
-                                        <label for="Nombre">Nombre completo:</label>
-                                        <input type="text" name="Nombre"
+                                        <label for="Nombre">Clase:</label>
+                                        <input type="text" name="clase"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->nombre }}">
+                                        value="">
 
-                                        <label for="Correo">Correo electrónico</label>
-                                        <input type="email" name="Correo"
+                                        <label for="Maestro">Maestro</label>
+                                        <input type="text" name="maestro"
                                             class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                            value="{{ $maestros->correo }}">
+                                            value="">
 
 
-                                            <label for="Direccion">Dirección:</label>
-                                        <input type="text" name="Direccion"
+                                            <label for="Inscritos">Alumnos inscritos:</label>
+                                        <input type="text" name="alumnos_ins"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->direccion }}">
-
-                                        <label for="Direccion">Fecha de nacimiento:</label>
-                                        <input type="date" name="Fecha"
-                                        class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->fecha }}">
-
-                                        <label for="Clase">Clase asignada:</label>
-                                        <input type="text" name="Clase"
-                                        class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->clase }}">
-
-
+                                        value="">
 
                                         {{-- ACCESS DROP-DOWN STARTS HERE --}}
                                         <div class="mt-2">

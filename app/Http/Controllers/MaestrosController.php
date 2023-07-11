@@ -11,10 +11,19 @@ class MaestrosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+    //     $filtro = $request->input('filtro');
+    // $permisos = Maestros::where('nombre', 'like', '%' . $filtro . '%')
+    //     ->orWhere('permiso', 'like', '%' . $filtro . '%')
+    //     ->orWhere('estado', 'like', '%' . $filtro . '%')
+    //     ->get();
+
+        $maestros = Maestros::all();
+    
         
-        return view("maestros");
+        return view('maestros', compact('maestros'));
+
     }
 
     /**
@@ -22,7 +31,7 @@ class MaestrosController extends Controller
      */
     public function create()
     {
-        //
+        return view("maestros_add");
     }
 
     /**
@@ -30,7 +39,28 @@ class MaestrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "nombre"=>'required',
+            "correo"=>'required',
+            "direccion"=>'required',
+            "fecha"=>'required',
+            "clase"=>'required',
+            
+        ]);
+
+
+        $maestros = new Maestros;
+        $maestros->nombre = $request->input("nombre");
+        $maestros->correo = $request->input("correo");
+        $maestros->direccion = $request->input("direccion");
+        $maestros->fecha = $request->input("fecha");
+        $maestros->clase = $request->input("clase");
+        $maestros->save();
+
+        return redirect()->route('maestros.index');
+
+
+
     }
 
     /**
@@ -44,24 +74,37 @@ class MaestrosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Maestros $maestros)
+    public function edit($id)
     {
-        //
+        $maestros = Maestros::where("id", $id)->first();
+        // return $usuario;
+        return view("maestros_edit",compact("maestros"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Maestros $maestros)
+    public function update(Request $request, int $id)
     {
-        //
+        $maestros = Maestros::find($id);
+        $maestros->nombre = $request->input("Nombre");
+        $maestros->correo = $request->input("Correo");
+        $maestros->direccion = $request->input("Direccion");
+        $maestros->fecha = $request->input("Fecha");
+        $maestros->clase = $request->input("Clase");
+        $maestros->save();
+        
+        return redirect()->route("maestros.index");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Maestros $maestros)
+    public function destroy($id)
     {
-        //
+        $maestros = Maestros::findOrFail($id);
+        $maestros->delete();
+    
+        return redirect()->route('maestros.index')->with('success', 'Registro eliminado exitosamente');
     }
 }

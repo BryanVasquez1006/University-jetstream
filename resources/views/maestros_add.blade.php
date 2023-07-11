@@ -17,10 +17,8 @@
                     <div class="m-auto">
                         <div>
                             {{-- FORMULARIO --}}
-                            <form action="{{ route('maestros.update', $maestros->id) }}" method="POST">
-
+                            <form action="{{ route('maestros.store') }}" method="POST">
                                 @csrf
-                                @method('PUT')
                                 <div class="mt-5 bg-white rounded-lg shadow">
                                     <div class="flex">
                                         <div class="flex-1 py-5 pl-5 overflow-hidden">
@@ -43,30 +41,30 @@
                                     </div>
                                     <div class="px-5 pb-5">
                                         <label for="Nombre">Nombre completo:</label>
-                                        <input type="text" name="Nombre"
+                                        <input type="text" name="nombre"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->nombre }}">
+                                        value="">
 
                                         <label for="Correo">Correo electrónico</label>
-                                        <input type="email" name="Correo"
+                                        <input type="email" name="correo"
                                             class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                            value="{{ $maestros->correo }}">
+                                            value="">
 
 
                                             <label for="Direccion">Dirección:</label>
-                                        <input type="text" name="Direccion"
+                                        <input type="text" name="direccion"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->direccion }}">
+                                        value="">
 
                                         <label for="Direccion">Fecha de nacimiento:</label>
-                                        <input type="date" name="Fecha"
+                                        <input type="date" name="fecha"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->fecha }}">
+                                        value="">
 
                                         <label for="Clase">Clase asignada:</label>
-                                        <input type="text" name="Clase"
+                                        <input type="text" name="clase"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->clase }}">
+                                        value="">
 
 
 

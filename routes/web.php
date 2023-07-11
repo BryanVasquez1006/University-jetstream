@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AlumnosController;
+use App\Http\Controllers\ClasesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PermisosController;
 use App\Http\Controllers\MaestrosController;

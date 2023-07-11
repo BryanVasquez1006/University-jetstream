@@ -22,8 +22,8 @@ class PermisosFactory extends Factory
         return [
             
             'correo' => $this->faker->unique->email(),
-            'permiso' => $this->faker->name(),
-            'estado'=> $this->faker->state()
+            'permiso' => $this->faker->randomElement(['Maestro', 'Alumno', 'Admin']),
+            'estado' => $this->faker->randomElement(['Vacacion', 'Disponible', 'Emergencia']),
         ];
     }
 }

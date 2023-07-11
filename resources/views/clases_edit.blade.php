@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @vite('resources/css/app.css')
-@section('title', 'Maestros')
+@section('title', 'Alumnos')
 
 @section('content_header')
 
@@ -17,7 +17,7 @@
                     <div class="m-auto">
                         <div>
                             {{-- FORMULARIO --}}
-                            <form action="{{ route('maestros.update', $maestros->id) }}" method="POST">
+                            <form action="{{ route('clases.update', $alumnos->id) }}" method="POST">
 
                                 @csrf
                                 @method('PUT')
@@ -45,28 +45,28 @@
                                         <label for="Nombre">Nombre completo:</label>
                                         <input type="text" name="Nombre"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->nombre }}">
+                                        value="{{ $alumnos->nombre }}">
 
                                         <label for="Correo">Correo electrónico</label>
                                         <input type="email" name="Correo"
                                             class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                            value="{{ $maestros->correo }}">
+                                            value="{{ $alumnos->correo }}">
 
 
                                             <label for="Direccion">Dirección:</label>
                                         <input type="text" name="Direccion"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->direccion }}">
+                                        value="{{ $alumnos->direccion }}">
 
                                         <label for="Direccion">Fecha de nacimiento:</label>
                                         <input type="date" name="Fecha"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->fecha }}">
+                                        value="{{ $alumnos->fecha }}">
 
-                                        <label for="Clase">Clase asignada:</label>
-                                        <input type="text" name="Clase"
+                                        <label for="Dui"># DUI:</label>
+                                        <input type="text" name="Dui"
                                         class=" text-black placeholder-gray-600 w-full px-4 py-2.5 mt-1 text-base  transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-                                        value="{{ $maestros->clase }}">
+                                        value="{{ $alumnos->dui }}">
 
 
 
