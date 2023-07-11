@@ -29,7 +29,7 @@
                     <div class="mb-3">
                         <form action="">
                             <label for="FiltroData">Search</label>
-                            <input type="text" class="text-black w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-stone-900 rounded-lg  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400">
+                            <input type="text" class="text-black w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-stone-900 rounded-lg  focus:border-blueGray-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400" name="filtro" value="{{ $filtro }}">
                         </form>
                     </div>
                 </div>
@@ -45,6 +45,11 @@
                                 <th class="text-left p-3 px-5">Acciones</th>
                             </tr>
                             @foreach ($permisos as $permiso)
+                            @if ($filtro == '' || str_contains($permiso->correo, $filtro) || 
+                            str_contains($permiso->permiso, $filtro) || 
+                            str_contains($permiso->estado, $filtro))
+                                
+                            @endif
                                 <tr class="border-b hover:bg-slate-100">
                                     <td class="p-3 px-5">{{ $permiso->id }}</td>
                                     <td class="p-3 px-5">{{ $permiso->correo }}</td>
